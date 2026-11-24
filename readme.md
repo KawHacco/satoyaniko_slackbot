@@ -31,15 +31,34 @@ Socket Mode で Slack Bolt アプリを稼働させつつ、独立したバッ�
 
 ### 1. Python と依存パッケージのインストール
 
-仮想環境（例: `.venv`）を用意し、必要なパッケージをインストールします。Windows 環境で `ZoneInfo("Asia/Tokyo")` を利用する場合は `tzdata` も必要です。
+Python 3.14 をインストールしてください。
 
-```bash
+プロジェクトのフォルダで以下のコマンドを実行します。
+
+```powershell
 python -m venv .venv
-# Windows (PowerShell / cmd)
-.venv\Scripts\pip.exe install slack-bolt slack-sdk requests python-dotenv tzdata
-# macOS / Linux
-.venv/bin/pip install slack-bolt slack-sdk requests python-dotenv tzdata
+.venv\Scripts\activate
+pip install -r requirements.txt
 ```
+
+### 2. 環境変数（.env）の設定
+
+プロジェクトルートに `.env` ファイルを作成し、必要なトークンを設定します。
+
+```env
+SLACK_BOT_TOKEN=xoxb-your-bot-token
+SLACK_APP_TOKEN=xapp-your-app-token
+# 任意: 全ユーザーの予約を管理できる管理者ユーザー ID（カンマ区切り）
+ADMIN_USER_IDS=U01234567,U89ABCDEF
+```
+
+### 3. Slack App 側の設定目安
+
+- Socket Mode: 有効化
+- Slash Commands: `/send` を作成
+- Interactivity & Shortcuts: 有効化
+- 必要な Bot Token Scopes を設定し、ワークスペースへインストール
+
 
 ### 2. 環境変数（`.env`）の設定
 
