@@ -98,9 +98,14 @@ ADMIN_USER_IDS=U01234567,U89ABCDEF
 
 ```text
 .
-├── app.py              # メインアプリケーション（Bolt ハンドラー・スケジューラー・UI）
-├── .env                # 環境変数（トークン等・Git管理外推奨）
-└── data/               # 起動時に自動生成
-    ├── schedules.db    # 予約スケジュール管理用 SQLite DB
-    └── attachments/    # 予約投稿に紐づく永続化添付ファイル
+satoyaniko_slackbot/
+├── app.py
+├── requirements.txt
+├── README.md
+├── .env.example
+├── .gitignore
+├── run.bat
+└── data/                 # 起動時に自動生成
+    ├── schedules.db
+    └── attachments/
 ```
